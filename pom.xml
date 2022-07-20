@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hongsheng</groupId>
+    <artifactId>hongsheng-all</artifactId>
+    <version>1.0-0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>hongsheng-scorpio-rocketmq</module>
+        <module>hongsheng-mongodb</module>
+        <module>hongsheng-scorpio-redis</module>
+        <module>hongsheng-scorpio-elasticsearch</module>
+    </modules>
+
+    <!-- spring-boot-starter-parent 这是Springboot父级依赖，表示当前是Springboot项目
+    可以用来控制Maven默认依赖版本，使用后可以省去version标签，可以指定像spring-boot-starter-web和spring-boot-starter-test的版本
+     但是只引入这块也不会生成相关依赖 只是引入它后 无需在后续引入相关依赖不需指定版本号了-->
+
+    <!-- 和使用dependencyManagement一样 只是定义了版本号 后续使用不用指定版本号了 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+        <!-- 这样写，也就是说我指定了relativePath，但值是空的，设定一个空值将始终从仓库中获取，不从本地路径获取.-->
+        <!-- <relativePath>一个pom路径<relativePath/>这种也很显然，指定一个本地的路径，从本地路径获取parent的pom -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <properties>
+        <!-- 声明一个 java.version 的变量，后面直接引用就可以，改起来方便 -->
+        <java.version>1.8</java.version>
+        <!-- 指定项目编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- 统一管理引用版本 -->
+    <!-- 在dependencyManagement元素中声明所依赖的jar包的版本号等信息，那么所有子项目再次引入此依赖jar包时则无需显式的列出版本号。
+    Maven会沿着父子层级向上寻找拥有dependencyManagement 元素的项目，然后使用它指定的版本号 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>4.9.3</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- 指定jdk版本，和指定编码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

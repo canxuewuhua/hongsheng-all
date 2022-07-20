@@ -1,0 +1,7 @@
+logHome_IS_UNDEFINED/
+.idea
+target/
+*.iml
+/*.iml
+*/.DS_Store
+.DS_Store

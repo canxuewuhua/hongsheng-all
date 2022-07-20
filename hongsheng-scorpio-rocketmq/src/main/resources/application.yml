@@ -1,0 +1,10 @@
+server:
+  port: 8079
+spring:
+  application:
+    name: rocketmq-pro
+rocketmq:
+  name-server: 101.42.156.68:9876
+  producer:
+    # 必须要写 group
+    group: scorpio-group
