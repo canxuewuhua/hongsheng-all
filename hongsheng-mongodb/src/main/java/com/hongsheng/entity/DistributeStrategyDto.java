@@ -3,9 +3,11 @@ package com.hongsheng.entity;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Date;
 
+/**
+ * mongo实体类
+ */
 @Data
 @Document(collection = "distribute_method")
 public class DistributeStrategyDto {
