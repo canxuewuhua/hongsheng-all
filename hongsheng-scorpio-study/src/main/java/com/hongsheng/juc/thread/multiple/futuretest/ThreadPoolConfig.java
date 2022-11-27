@@ -38,6 +38,10 @@ public class ThreadPoolConfig {
         log.debug("初始化线程池结束");
     }
 
+    public ThreadPoolTaskExecutor getPoolTaskExecutor(){
+        return poolTaskExecutor;
+    }
+
     public Future<OrderPriceResponseDto> submitCallable(Callable task) {
         log.info("当前活动线程数：{},核心线程数：{},总线程数：{},最大线程池数量：{},线程处理队列长度：{}", poolTaskExecutor.getActiveCount(), poolTaskExecutor.getCorePoolSize(), poolTaskExecutor.getPoolSize(), poolTaskExecutor.getMaxPoolSize(), poolTaskExecutor.getThreadPoolExecutor().getQueue().size());
         return poolTaskExecutor.submit(task);

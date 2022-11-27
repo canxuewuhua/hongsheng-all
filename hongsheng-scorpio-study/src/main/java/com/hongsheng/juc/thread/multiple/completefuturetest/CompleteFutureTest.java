@@ -1,10 +1,14 @@
 package com.hongsheng.juc.thread.multiple.completefuturetest;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.hongsheng.juc.thread.multiple.futuretest.ThreadPoolConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
 import java.time.Instant;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
@@ -25,6 +29,9 @@ public class CompleteFutureTest {
 
     private Instant startTime;
     private Instant endTime;
+
+    @Autowired
+    private ThreadPoolConfig threadPoolConfig;
     /**
      * 线程测试方法
      *
@@ -102,6 +109,7 @@ public class CompleteFutureTest {
      */
     @Test
     public void fun01() throws InterruptedException {
+//        ThreadPoolTaskExecutor poolTaskExecutor = threadPoolConfig.getPoolTaskExecutor();
         CompletableFuture.runAsync(() -> run(10, 5,1), threadPoolExecutor);
         sleep(3);
     }
