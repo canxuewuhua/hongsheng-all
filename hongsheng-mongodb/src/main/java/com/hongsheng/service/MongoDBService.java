@@ -34,7 +34,6 @@ public class MongoDBService {
         List<User> users = mongoTemplate.find(query, User.class);
         System.out.println(users);
         System.out.println("-------------");
-
         // 大于 小于
         List<User> salary = mongoTemplate.find(Query.query(Criteria.where("salary").lt(2000d)), User.class);
         System.out.println(salary);

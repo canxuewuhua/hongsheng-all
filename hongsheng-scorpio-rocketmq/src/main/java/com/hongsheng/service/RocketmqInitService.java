@@ -13,10 +13,10 @@ public class RocketmqInitService {
 
     public String rocketmqSend(String msg){
         MessageDto.MessageDtoBuilder builder = MessageDto.builder();
-        builder.msgId("JK019303440000A2")
+        builder.msgId("JQ019907740000A1F")
                .msgContent(msg);
         System.out.println(builder);
-        rocketMQTemplate.convertAndSend("second-topic:tag001", builder.build());
+        rocketMQTemplate.syncSend("wanda-topic:tag00H", builder.build());
         return "投递消息 => " + msg + " => 成功";
     }
 

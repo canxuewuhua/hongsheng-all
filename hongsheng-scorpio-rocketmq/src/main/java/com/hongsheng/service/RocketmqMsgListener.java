@@ -12,11 +12,15 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RocketMQMessageListener(
-        consumerGroup = "consumer-group",
-        topic = "second-topic")
+        consumerGroup = "wanda-group",
+        topic = "wanda-topic",
+        selectorExpression="tag00H",
+        maxReconsumeTimes=3)
 public class RocketmqMsgListener implements RocketMQListener<MessageDto> {
     @Override
     public void onMessage(MessageDto messageDto) {
+        int i = 0;
+        int m = 5/i;
         log.warn("消费到消息 => "+ messageDto.toString());
     }
 }

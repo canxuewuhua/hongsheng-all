@@ -1,7 +1,6 @@
 package com.hongsheng.controller;
 
 import com.hongsheng.service.RocketmqInitService;
-import com.hongsheng.service.RocketmqMsgListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +13,6 @@ public class RocketmqInitController {
 
     @Autowired
     private RocketmqInitService rocketmqInitService;
-    @Autowired
-    private RocketmqMsgListener rocketmqMsgListener;
 
     @GetMapping("/connect")
     public String rocketmqSend(@RequestParam("msg")String msg){

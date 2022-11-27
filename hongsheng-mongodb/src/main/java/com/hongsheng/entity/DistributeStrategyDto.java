@@ -14,6 +14,7 @@ public class DistributeStrategyDto {
 
     private ObjectId _id;
     private String storeId;
+    private int[] payAccountTypes;
     private Integer type;
     private Method content;
     private Date createTime;

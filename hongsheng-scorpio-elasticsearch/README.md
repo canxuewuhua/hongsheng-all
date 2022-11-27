@@ -1,3 +1,7 @@
+# hongsheng-scorpio-elasticsearch项目笔记
+
+> 本项目为日常学习es的案例代码
+
 
 全文检索
 是计算机程序通过扫描文章中的每一个词 对每一个词建立一个索引

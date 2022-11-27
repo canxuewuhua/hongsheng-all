@@ -14,6 +14,10 @@
         <module>hongsheng-mongodb</module>
         <module>hongsheng-scorpio-redis</module>
         <module>hongsheng-scorpio-elasticsearch</module>
+        <module>hongsheng-mysql-test</module>
+        <module>hongsheng-scorpio-study</module>
+        <module>hongsheng-scorpio-springcloud</module>
+        <module>hongsheng-algorith</module>
     </modules>
 
     <!-- spring-boot-starter-parent 这是Springboot父级依赖，表示当前是Springboot项目

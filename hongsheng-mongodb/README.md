@@ -1,4 +1,6 @@
+# hongsheng-mongodb项目笔记
 
+> 本项目为日常学习mongodb的案例代码，主要是一些语法要熟悉练习
 
 
  库 DataBase
